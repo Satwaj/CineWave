@@ -6,7 +6,7 @@ services:
     name: cinewave
     runtime: node
     plan: free
-    buildCommand: cd Frontend && npm install && npm run build && cd ../Backend && npm install
+    buildCommand: cd Frontend && npm install --include=dev && npm run build && cd ../Backend && npm install
     startCommand: cd Backend && node server.js
     envVars:
       - key: NODE_ENV
