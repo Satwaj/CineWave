@@ -1,0 +1,218 @@
+/* ===== Splash Screen ===== */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #050510;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  animation: splashExit 0.8s ease-in 3.2s forwards;
+}
+
+@keyframes splashExit {
+  0% { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+/* ---- Background glow ---- */
+.splash::before {
+  content: '';
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 197, 24, 0.12) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: splashGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes splashGlow {
+  from { transform: translate(-50%, -50%) scale(0.8); opacity: 0.5; }
+  to { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+
+/* ---- Floating particles ---- */
+.splash__particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.splash__particle {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  background: #f5c518;
+  opacity: 0;
+  animation: particleFloat 2.5s ease-in-out var(--delay) infinite;
+}
+
+@keyframes particleFloat {
+  0% { opacity: 0; transform: translateY(20px) scale(0); }
+  30% { opacity: 0.6; transform: translateY(-10px) scale(1); }
+  70% { opacity: 0.4; transform: translateY(-30px) scale(0.8); }
+  100% { opacity: 0; transform: translateY(-50px) scale(0); }
+}
+
+/* ---- Film strips ---- */
+.splash__strip {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 20px,
+      rgba(245, 197, 24, 0.08) 20px,
+      rgba(245, 197, 24, 0.08) 24px,
+      transparent 24px,
+      transparent 44px
+    );
+  opacity: 0;
+  animation: stripReveal 0.8s ease 0.3s forwards;
+}
+
+.splash__strip--left {
+  left: 5%;
+  border-left: 2px solid rgba(245, 197, 24, 0.15);
+  border-right: 2px solid rgba(245, 197, 24, 0.15);
+  animation-delay: 0.3s;
+}
+
+.splash__strip--right {
+  right: 5%;
+  border-left: 2px solid rgba(245, 197, 24, 0.15);
+  border-right: 2px solid rgba(245, 197, 24, 0.15);
+  animation-delay: 0.5s;
+}
+
+@keyframes stripReveal {
+  from { opacity: 0; transform: scaleY(0); }
+  to { opacity: 1; transform: scaleY(1); }
+}
+
+/* ---- Center content ---- */
+.splash__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  z-index: 2;
+}
+
+/* ---- Logo ring ---- */
+.splash__logo-ring {
+  position: relative;
+  animation: logoEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+}
+
+@keyframes logoEntrance {
+  from { opacity: 0; transform: scale(0.3) rotate(-30deg); }
+  to { opacity: 1; transform: scale(1) rotate(0); }
+}
+
+.splash__logo-svg {
+  filter: drop-shadow(0 0 20px rgba(245, 197, 24, 0.4));
+  animation: logoPulse 1.5s ease-in-out 1s infinite alternate;
+}
+
+@keyframes logoPulse {
+  from { filter: drop-shadow(0 0 20px rgba(245, 197, 24, 0.4)); }
+  to { filter: drop-shadow(0 0 35px rgba(245, 197, 24, 0.7)); }
+}
+
+/* ---- Text with letter-by-letter animation ---- */
+.splash__text {
+  display: flex;
+  gap: 2px;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  font-family: 'Inter', sans-serif;
+}
+
+.splash__letter {
+  display: inline-block;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(30px) rotateX(90deg);
+  animation: letterReveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: calc(0.6s + var(--i) * 0.08s);
+}
+
+.splash__letter--accent {
+  color: #f5c518;
+}
+
+@keyframes letterReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+  }
+}
+
+/* ---- Tagline ---- */
+.splash__tagline {
+  color: #64748b;
+  font-size: 0.95rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: taglineIn 0.6s ease 1.6s forwards;
+}
+
+@keyframes taglineIn {
+  from { opacity: 0; transform: translateY(10px); letter-spacing: 12px; }
+  to { opacity: 1; transform: translateY(0); letter-spacing: 4px; }
+}
+
+/* ---- Animated wave underline ---- */
+.splash__wave {
+  width: 160px;
+  height: 16px;
+  opacity: 0;
+  animation: waveIn 0.6s ease 1.9s forwards;
+}
+
+.splash__wave path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: waveDraw 1s ease 2s forwards;
+}
+
+@keyframes waveIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes waveDraw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .splash__text {
+    font-size: 2rem;
+  }
+
+  .splash__strip {
+    width: 30px;
+  }
+
+  .splash__strip--left { left: 2%; }
+  .splash__strip--right { right: 2%; }
+
+  .splash__tagline {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+  }
+}

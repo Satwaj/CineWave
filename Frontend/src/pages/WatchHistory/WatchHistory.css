@@ -1,0 +1,133 @@
+.history-page {
+  padding-top: 84px;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.history-page__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 0;
+}
+
+.history-page__header h1 {
+  color: #f1f5f9;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.history-page__header p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.history-page__clear {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.history-page__clear:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+.history-page__empty {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.history-page__empty-icon {
+  font-size: 3rem;
+  color: #334155;
+  margin-bottom: 16px;
+}
+
+.history-page__empty h2 {
+  color: #e2e8f0;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.history-page__empty p {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.history-page__cta {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #f5c518, #e6a800);
+  color: #0a0a1a;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.history-page__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 197, 24, 0.3);
+}
+
+.history-page__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+  padding-bottom: 40px;
+}
+
+.history-card {
+  display: flex;
+  gap: 14px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.history-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(245, 197, 24, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.history-card img {
+  width: 60px;
+  height: 90px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.history-card__info h3 {
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.history-card__info span {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin-right: 10px;
+}
+
+.history-card__rating {
+  color: #f5c518 !important;
+}

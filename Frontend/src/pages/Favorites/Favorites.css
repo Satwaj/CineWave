@@ -1,0 +1,134 @@
+.favorites-page {
+  padding-top: 84px;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.favorites-page__header {
+  padding: 20px 0;
+}
+
+.favorites-page__header h1 {
+  color: #f1f5f9;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.favorites-page__header p {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+.favorites-page__empty {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.favorites-page__empty-icon {
+  font-size: 3rem;
+  color: #334155;
+  margin-bottom: 16px;
+}
+
+.favorites-page__empty h2 {
+  color: #e2e8f0;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.favorites-page__empty p {
+  color: #64748b;
+  margin-bottom: 20px;
+}
+
+.favorites-page__cta {
+  display: inline-block;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #f5c518, #e6a800);
+  color: #0a0a1a;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.favorites-page__cta:hover {
+  background: linear-gradient(135deg, #ffe34d, #f5c518);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 197, 24, 0.3);
+}
+
+.favorites-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  padding-bottom: 40px;
+}
+
+.fav-card {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.fav-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(245, 197, 24, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.fav-card__link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex: 1;
+  gap: 14px;
+  padding: 12px;
+}
+
+.fav-card__link img {
+  width: 60px;
+  height: 90px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.fav-card__info h3 {
+  color: #e2e8f0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.fav-card__info span {
+  color: #64748b;
+  font-size: 0.8rem;
+  margin-right: 10px;
+}
+
+.fav-card__rating {
+  color: #f5c518 !important;
+}
+
+.fav-card__remove {
+  background: none;
+  border: none;
+  color: #475569;
+  padding: 12px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.fav-card__remove:hover {
+  color: #ef4444;
+}

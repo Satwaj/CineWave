@@ -1,0 +1,21 @@
+# render.yaml — Render Blueprint
+# One Web Service that builds the React frontend and runs the Express backend.
+
+services:
+  - type: web
+    name: cinewave
+    runtime: node
+    plan: free
+    buildCommand: cd Frontend && npm install && npm run build && cd ../Backend && npm install
+    startCommand: cd Backend && node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false          # set manually in Render dashboard
+      - key: JWT_SECRET
+        sync: false
+      - key: TMDB_API_KEY
+        sync: false
+      - key: VITE_TMDB_API_KEY
+        sync: false

@@ -1,0 +1,238 @@
+.admin {
+  padding-top: 84px;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+.admin__header h1 {
+  color: #f1f5f9;
+  font-size: 2rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0;
+}
+
+.admin__tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.admin__tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.admin__tab:hover { color: #fff; border-color: rgba(255, 255, 255, 0.2); transform: translateY(-1px); }
+
+.admin__tab--active {
+  background: linear-gradient(135deg, #f5c518, #e6a800);
+  color: #0a0a1a;
+  border-color: #f5c518;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(245, 197, 24, 0.25);
+}
+
+.admin__add-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  background: #f5c518;
+  color: #0a0a1a;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.2s;
+}
+
+.admin__add-btn:hover { background: #e6b800; }
+
+.admin__form {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  animation: adminFormIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes adminFormIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.admin__form h3 {
+  color: #f1f5f9;
+  margin-bottom: 16px;
+}
+
+.admin__form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.admin__form input,
+.admin__form select,
+.admin__form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-size: 0.85rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.admin__form input:focus,
+.admin__form select:focus,
+.admin__form textarea:focus {
+  border-color: #f5c518;
+}
+
+.admin__form textarea {
+  resize: vertical;
+  margin-bottom: 12px;
+}
+
+.admin__form-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.admin__save-btn {
+  padding: 10px 24px;
+  background: #f5c518;
+  color: #0a0a1a;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin__cancel-btn {
+  padding: 10px 24px;
+  background: rgba(255, 255, 255, 0.06);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.admin__table {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin__table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #94a3b8;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.admin__table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 14px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.admin__table-row:hover {
+  background: rgba(245, 197, 24, 0.03);
+}
+
+/* 5-column for users */
+.admin__section:last-child .admin__table-header,
+.admin__section:last-child .admin__table-row {
+  grid-template-columns: 1.5fr 2fr 0.8fr 0.8fr 1fr;
+}
+
+.admin__badge {
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(245, 197, 24, 0.1);
+  color: #f5c518;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+  width: fit-content;
+}
+
+.admin__status--active { color: #22c55e; }
+.admin__status--banned { color: #ef4444; }
+
+.admin__actions {
+  display: flex;
+  gap: 8px;
+}
+
+.admin__actions button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin__actions button:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.admin__delete-btn { color: #ef4444 !important; }
+.admin__delete-btn:hover { border-color: rgba(239, 68, 68, 0.3) !important; }
+
+.admin__empty {
+  text-align: center;
+  color: #475569;
+  padding: 40px;
+}
+
+@media (max-width: 768px) {
+  .admin__form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .admin__table-header,
+  .admin__table-row {
+    grid-template-columns: 1fr 1fr !important;
+    font-size: 0.8rem;
+  }
+}
